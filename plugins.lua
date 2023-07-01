@@ -62,7 +62,7 @@ local plugins = {
 	-- }
 	{
 		"alexghergh/nvim-tmux-navigation",
-    lazy = false,
+		lazy = false,
 		config = function()
 			require("nvim-tmux-navigation").setup({
 				disable_web_zoomed = true,

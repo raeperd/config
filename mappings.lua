@@ -39,6 +39,30 @@ M.telescope = {
   },
 }
 
+M.lspconfig = {
+  plugin = true,
+
+  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+  n = {
+    ["<leader>lgD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration",},
+    ["<leader>lgd"] = { function() vim.lsp.buf.definition() end, "LSP definition",},
+    ["K"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
+    ["<leader>lgi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation",},
+    ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help",},
+    ["<leader>lD"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type",},
+    ["<leader>lrm"] = { function() require("nvchad_ui.renamer").open() end, "LSP rename",},
+    ["<leader>lca"] = { function() vim.lsp.buf.code_action() end, "LSP code action",},
+    ["<leader>lgr"] = { function() vim.lsp.buf.references() end, "LSP references",},
+    ["<leader>lf"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic",},
+    ["<leader>d["] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev",},
+    ["<leader>d]"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next",},
+    ["<leader>q"] = { function() vim.diagnostic.setloclist() end, "Diagnostic setloclist",},
+    ["<leader>lwa"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder",},
+    ["<leader>lwr"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder",},
+    ["<leader>lwl"] = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders",},
+  },
+}
+
 local tmuxKeyMaps = {
   ["<C-h>"] = {"<cmd> NvimTmuxNavigateLeft <CR>", "NvimTmuxNavigateLeft"},
   ["<C-j>"] = {"<cmd> NvimTmuxNavigateDown <CR>", "NvimTmuxNavigateDown"},
