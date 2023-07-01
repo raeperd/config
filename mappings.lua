@@ -7,6 +7,7 @@ M.general = {
         ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
         ["<leader>Y"] = {[["+Y]], '[Y] with system clipboard'},
         ["<leader>d"] = {[["_d]], '[Y] with system clipboard'},
+        ["q"] = {"<Nop>", "Disable vim macro"}
 	},
     v = {
         ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
