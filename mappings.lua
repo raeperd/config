@@ -4,7 +4,14 @@ local M = {}
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
+        ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
+        ["<leader>Y"] = {[["+Y]], '[Y] with system clipboard'},
+        ["<leader>d"] = {[["_d]], '[Y] with system clipboard'},
 	},
+    v = {
+        ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
+        ["<leader>d"] = {[["_d]], '[Y] with system clipboard'},
+    }
 }
 
 -- more keybinds!

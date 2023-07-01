@@ -6,7 +6,10 @@
 --   command = "tabdo wincmd =",
 -- })
 
+vim.wo.number = true
 vim.wo.relativenumber = true
+
+vim.o.clipboard = ''
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
