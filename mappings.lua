@@ -169,6 +169,17 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Add breakpoint at line" },
+    ["<leader>dB"] = {
+      function()
+        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+      end,
+      "Add conditional breakpoint at line",
+    },
+    ["<leader>dc"] = { "<cmd> DapContinue <CR>", "DapContinue" },
+    ["<leader>di"] = { "<cmd> DapStepInto <CR>", "DapStepInto" },
+    ["<leader>do"] = { "<cmd> DapStepOver <CR>", "DapStepOver" },
+    ["<leader>dO"] = { "<cmd> DapStepOut <CR>", "DapStepOut" },
+    ["<leader>dx"] = { "<cmd> DapTerminate <CR>", "DapTerminate" },
     ["<leader>dos"] = {
       function()
         local widgets = require "dap.ui.widgets"
