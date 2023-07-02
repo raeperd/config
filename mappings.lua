@@ -52,37 +52,150 @@ M.lspconfig = {
 
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
   n = {
-    ["<leader>lgD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration",},
-    ["<leader>lgd"] = { function() vim.lsp.buf.definition() end, "LSP definition",},
-    ["K"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
-    ["<leader>lgi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation",},
-    ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help",},
-    ["<leader>lD"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type",},
-    ["<leader>lrm"] = { function() require("nvchad_ui.renamer").open() end, "LSP rename",},
-    ["<leader>lca"] = { function() vim.lsp.buf.code_action() end, "LSP code action",},
-    ["<leader>lgr"] = { function() vim.lsp.buf.references() end, "LSP references",},
-    ["<leader>lf"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic",},
-    ["<leader>d["] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev",},
-    ["<leader>d]"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next",},
-    ["<leader>q"] = { function() vim.diagnostic.setloclist() end, "Diagnostic setloclist",},
-    ["<leader>lwa"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder",},
-    ["<leader>lwr"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder",},
-    ["<leader>lwl"] = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders",},
+    ["<leader>lgD"] = {
+      function()
+        vim.lsp.buf.declaration()
+      end,
+      "LSP declaration",
+    },
+    ["<leader>lgd"] = {
+      function()
+        vim.lsp.buf.definition()
+      end,
+      "LSP definition",
+    },
+    ["K"] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "LSP hover",
+    },
+    ["<leader>lgi"] = {
+      function()
+        vim.lsp.buf.implementation()
+      end,
+      "LSP implementation",
+    },
+    ["<leader>ls"] = {
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      "LSP signature help",
+    },
+    ["<leader>lD"] = {
+      function()
+        vim.lsp.buf.type_definition()
+      end,
+      "LSP definition type",
+    },
+    ["<leader>lrm"] = {
+      function()
+        require("nvchad_ui.renamer").open()
+      end,
+      "LSP rename",
+    },
+    ["<leader>lca"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
+    ["<leader>lgr"] = {
+      function()
+        vim.lsp.buf.references()
+      end,
+      "LSP references",
+    },
+    ["<leader>lf"] = {
+      function()
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "Floating diagnostic",
+    },
+    ["<leader>d["] = {
+      function()
+        vim.diagnostic.goto_prev { float = { border = "rounded" } }
+      end,
+      "Goto prev",
+    },
+    ["<leader>d]"] = {
+      function()
+        vim.diagnostic.goto_next { float = { border = "rounded" } }
+      end,
+      "Goto next",
+    },
+    ["<leader>q"] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      "Diagnostic setloclist",
+    },
+    ["<leader>lwa"] = {
+      function()
+        vim.lsp.buf.add_workspace_folder()
+      end,
+      "Add workspace folder",
+    },
+    ["<leader>lwr"] = {
+      function()
+        vim.lsp.buf.remove_workspace_folder()
+      end,
+      "Remove workspace folder",
+    },
+    ["<leader>lwl"] = {
+      function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      "List workspace folders",
+    },
   },
 }
 
 local tmuxKeyMaps = {
-  ["<C-h>"] = {"<cmd> NvimTmuxNavigateLeft <CR>", "NvimTmuxNavigateLeft"},
-  ["<C-j>"] = {"<cmd> NvimTmuxNavigateDown <CR>", "NvimTmuxNavigateDown"},
-  ["<C-k>"] = {"<cmd> NvimTmuxNavigateUp <CR>", "NvimTmuxNavigateUp"},
-  ["<C-l>"] = {"<cmd> NvimTmuxNavigateRight <CR>", "NvimTmuxNavigateRight"},
-  ["<C-\\>"] = {"<cmd> NvimTmuxNavigateLastActive <CR>", "NvimTmuxNavigateLastActive"},
-  ["<C-Space>"] = {"<cmd> NvimTmuxNavigateNext <CR>", "NvimTmuxNavigateNext"},
+  ["<C-h>"] = { "<cmd> NvimTmuxNavigateLeft <CR>", "NvimTmuxNavigateLeft" },
+  ["<C-j>"] = { "<cmd> NvimTmuxNavigateDown <CR>", "NvimTmuxNavigateDown" },
+  ["<C-k>"] = { "<cmd> NvimTmuxNavigateUp <CR>", "NvimTmuxNavigateUp" },
+  ["<C-l>"] = { "<cmd> NvimTmuxNavigateRight <CR>", "NvimTmuxNavigateRight" },
+  ["<C-\\>"] = { "<cmd> NvimTmuxNavigateLastActive <CR>", "NvimTmuxNavigateLastActive" },
+  ["<C-Space>"] = { "<cmd> NvimTmuxNavigateNext <CR>", "NvimTmuxNavigateNext" },
 }
 M.tmux = {
-	n = tmuxKeyMaps,
-	i = tmuxKeyMaps,
-	v = tmuxKeyMaps,
+  n = tmuxKeyMaps,
+  i = tmuxKeyMaps,
+  v = tmuxKeyMaps,
+}
+
+M.dap = {
+  plugin = true,
+  n = {
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Add breakpoint at line" },
+    ["<leader>dos"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "Open debugging sidebar",
+    },
+  },
+}
+
+M.dap_go = {
+  plugin = true,
+  n = {
+    ["<leader>dt"] = {
+      function()
+        require("dap-go").debug_test()
+      end,
+      "Debug go test",
+    },
+    ["<leader>dl"] = {
+      function()
+        require("dap-go").debug_last()
+      end,
+      "Debug last go test",
+    },
+  },
 }
 
 return M
