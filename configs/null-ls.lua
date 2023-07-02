@@ -28,6 +28,13 @@ null_ls.setup {
   debug = true,
   sources = sources,
   on_attach = function(client, bufnr)
+    -- https://github.com/nvim-lua/kickstart.nvim/blob/master/lua/kickstart/plugins/autoformat.lua
+    local enableFormatOnSave = true
+    vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
+      enableFormatOnSave = not enableFormatOnSave
+      print("Setting format on save to:" .. tostring(enableFormatOnSave))
+    end, {})
+
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds {
         group = augroup,
@@ -37,6 +44,9 @@ null_ls.setup {
         group = augroup,
         buffer = bufnr,
         callback = function()
+          if not enableFormatOnSave then
+            return
+          end
           vim.lsp.buf.format { bufnr = bufnr }
         end,
       })
