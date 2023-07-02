@@ -188,6 +188,12 @@ M.dap = {
       end,
       "Open debugging sidebar",
     },
+    ["<leader>dui"] = {
+      function()
+        require("dapui").toggle()
+      end,
+      "Debug: See last session result.",
+    },
   },
 }
 
