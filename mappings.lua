@@ -2,27 +2,27 @@
 local M = {}
 
 M.general = {
-	n = {
-		[";"] = { ":", "enter command mode", opts = { nowait = true } },
-        ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
-        ["<leader>Y"] = {[["+Y]], '[Y] with system clipboard'},
-        ["<leader>d"] = {[["_d]], '[Y] with system clipboard'},
-        ["q"] = {"<Nop>", "Disable vim macro"}
-	},
-    v = {
-        ["<leader>y"] = {[["+y]], '[Y] with system clipboard'},
-        ["<leader>d"] = {[["_d]], '[Y] with system clipboard'},
-    }
+  n = {
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>y"] = { [["+y]], "[Y] with system clipboard" },
+    ["<leader>Y"] = { [["+Y]], "[Y] with system clipboard" },
+    ["<leader>d"] = { [["_d]], "[Y] with system clipboard" },
+    ["q"] = { "<Nop>", "Disable vim macro" },
+  },
+  v = {
+    ["<leader>y"] = { [["+y]], "[Y] with system clipboard" },
+    ["<leader>d"] = { [["_d]], "[Y] with system clipboard" },
+  },
 }
 
 -- more keybinds!
 -- https://nvchad.com/docs/config/mappings
 M.nvimtree = {
-	plugin = true,
-	n = {
-		["<leader>ex"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-		["<leader>ef"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
-	},
+  plugin = true,
+  n = {
+    ["<leader>ex"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    ["<leader>ef"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+  },
 }
 
 M.telescope = {

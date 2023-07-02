@@ -9,7 +9,7 @@
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.o.clipboard = ''
+vim.o.clipboard = ""
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -29,12 +29,15 @@ vim.opt.splitbelow = true
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
   group = highlight_group,
-  pattern = '*',
+  pattern = "*",
 })
 
+vim.api.nvim_create_user_command("Transparent", function()
+  require("base46").toggle_transparency()
+end, {})
