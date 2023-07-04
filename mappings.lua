@@ -47,6 +47,33 @@ M.telescope = {
   },
 }
 
+local nvTermKeymaps = {
+  ["<A-f>"] = {
+    function()
+      require("nvterm.terminal").toggle "float"
+    end,
+    "Toggle floating term",
+  },
+  ["<A-->"] = {
+    function()
+      require("nvterm.terminal").toggle "horizontal"
+    end,
+    "Toggle horizontal term",
+  },
+  ["<A-|>"] = {
+    function()
+      require("nvterm.terminal").toggle "vertical"
+    end,
+    "Toggle vertical term",
+  },
+}
+M.nvterm = {
+  plugin = true,
+
+  t = nvTermKeymaps,
+  n = nvTermKeymaps,
+}
+
 M.lspconfig = {
   plugin = true,
 
@@ -180,14 +207,6 @@ M.dap = {
     ["<leader>do"] = { "<cmd> DapStepOver <CR>", "DapStepOver" },
     ["<leader>dO"] = { "<cmd> DapStepOut <CR>", "DapStepOut" },
     ["<leader>dx"] = { "<cmd> DapTerminate <CR>", "DapTerminate" },
-    ["<leader>dos"] = {
-      function()
-        local widgets = require "dap.ui.widgets"
-        local sidebar = widgets.sidebar(widgets.scopes)
-        sidebar.open()
-      end,
-      "Open debugging sidebar",
-    },
     ["<leader>dui"] = {
       function()
         require("dapui").toggle()
