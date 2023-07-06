@@ -21,6 +21,7 @@ local sources = {
   -- go
   b.formatting.gofmt,
   b.formatting.goimports,
+  b.diagnostics.golangci_lint,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
