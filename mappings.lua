@@ -234,4 +234,34 @@ M.dap_go = {
   },
 }
 
+M.neotest = {
+  plugin = true,
+  n = {
+    ["<leader>tr"] = {
+      function()
+        require("neotest").run.run()
+      end,
+      "Run test nearlest",
+    },
+    ["<leader>td"] = {
+      function()
+        require("neotest").run.run { strategy = "dap" }
+      end,
+      "Run test nearlest in debug",
+    },
+    ["<leader>tf"] = {
+      function()
+        require("neotest").run.run(vim.fn.expand "%")
+      end,
+      "Run test in current file",
+    },
+    ["<leader>tw"] = {
+      function()
+        require("neotest").watch.watch()
+      end,
+      "Run test when file chages using watch",
+    },
+  },
+}
+
 return M
