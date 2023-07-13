@@ -264,4 +264,16 @@ M.neotest = {
   },
 }
 
+M.goimpl = {
+  plugin = true,
+  n = {
+    ["<leader>li"] = {
+      function()
+        require("telescope").extensions.goimpl.goimpl {}
+      end,
+      "impl go",
+    },
+  },
+}
+
 return M
