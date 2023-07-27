@@ -158,6 +158,10 @@ local plugins = {
       require("core.utils").load_mappings "goimpl"
     end,
   },
+  {
+    "earthly/earthly.vim",
+    lazy = false,
+  },
 }
 
 return plugins
