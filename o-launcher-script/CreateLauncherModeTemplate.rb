@@ -19,7 +19,7 @@ end
 require 'json'
 
 def main
-  version = "v1.0.5"
+  version = "v1.0.6"
 
   rule = {
     'description' => 'O-Launcher Rule ' + version,
@@ -27,6 +27,7 @@ def main
       generate_launcher_mode('a', [], [{ 'shell_command' => "open -a Arc.app" }]),
       generate_launcher_mode('b', [], [{ 'shell_command' => "open -a Obsidian.app" }]),
       generate_launcher_mode('c', [], [{ 'shell_command' => "open -a 'Google Chrome.app'" }]),
+      generate_launcher_mode('e', [], [{ 'shell_command' => "open -a Session.app" }]),
       generate_launcher_mode('f', [], [{ 'shell_command' => "open -a Figma.app" }]),
       generate_launcher_mode('i', [], [{ 'shell_command' => "open -a iTerm.app" }]),
       generate_launcher_mode('j', [], [{ 'shell_command' => "open -a 'IntelliJ IDEA.app'" }]),
