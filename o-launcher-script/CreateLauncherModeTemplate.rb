@@ -19,7 +19,7 @@ end
 require 'json'
 
 def main
-  version = "v1.0.6"
+  version = "v1.0.7"
 
   rule = {
     'description' => 'O-Launcher Rule ' + version,
@@ -35,12 +35,12 @@ def main
       generate_launcher_mode('m', [], [{ 'shell_command' => "open -a Mail.app" }]),
       generate_launcher_mode('n', [], [{ 'shell_command' => "open -a Notion.app" }]),
       generate_launcher_mode('p', [], [{ 'shell_command' => "open -a Postman.app" }]),
-      generate_launcher_mode('r', [], [{ 'shell_command' => "open -a Rize.app" }]),
+      generate_launcher_mode('r', [], [{ 'shell_command' => "open -a ResponsivelyApp.app" }]),
       generate_launcher_mode('s', [], [{ 'shell_command' => "open -a TablePlus.app" }]),
       generate_launcher_mode('t', [], [{ 'shell_command' => "open -a Todoist.app" }]),
       generate_launcher_mode('v', [], [{ 'shell_command' => "open -a 'Visual Studio Code.app'" }]),
       generate_launcher_mode('w', [], [{ 'shell_command' => "open -a 'KakaoWork.app'" }]),
-      generate_launcher_mode('y', [], [{ 'shell_command' => "open -a ResponsivelyApp.app" }]),
+      generate_launcher_mode('y', [], [{ 'shell_command' => "open -a 'Youtube Music.app'" }]),
     ].flatten,
   }
 
